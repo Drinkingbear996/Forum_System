@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="userMapper">
+      <!--    将实体封装到User-->
+
+
+    <select id="findAll" resultType="user" parameterType="int">
+        select * from User where id=#{id}
+    </select>
+
+    <insert id="save" parameterType="com.hwc.pojo.User">
+
+            insert into user values(#{id},#{username},#{password})
+
+    </insert>
+
+    <update id="update" parameterType="com.hwc.pojo.User">
+        update user set username=#{username},password=#{password} where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="com.hwc.pojo.User">
+            delete    from user where id=#{id}
+
+    </delete>
+
+
+
+</mapper>
